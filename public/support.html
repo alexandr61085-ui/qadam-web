@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none';">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="description" content="Поддержка QADAM — ответы на частые вопросы и контакт с командой.">
+  <meta property="og:title" content="Поддержка — QADAM">
+  <meta property="og:description" content="Ответы на частые вопросы и прямой контакт с командой QADAM.">
+  <meta property="og:image" content="https://getqadam.kz/assets/img/app-icon.png">
+  <meta property="og:url" content="https://getqadam.kz/support.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Поддержка — QADAM">
+  <meta name="twitter:description" content="Ответы на частые вопросы и прямой контакт с командой QADAM.">
+  <meta name="twitter:image" content="https://getqadam.kz/assets/img/app-icon.png">
+  <link rel="canonical" href="https://getqadam.kz/support.html">
+  <title>Поддержка — QADAM</title>
+  <link rel="icon" type="image/png" href="assets/img/app-icon.png">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <style>
+    :root { --max: 720px; }
+
+    /* Hero */
+    .support-hero { background: var(--dark); padding: 60px var(--px) 56px; text-align: center; }
+    .support-hero-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(36px, 6vw, 58px); font-weight: 800; color: #fff; line-height: 1.05; margin-bottom: 12px; }
+    .support-hero-title span { color: var(--lime); }
+    .support-hero-sub { font-size: 17px; color: rgba(255,255,255,.55); max-width: 480px; margin: 0 auto; }
+
+    /* Quick links */
+    .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: var(--max); margin: -28px auto 0; padding: 0 var(--px); position: relative; z-index: 2; }
+    .quick-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: center; text-decoration: none; color: var(--dark); transition: transform .2s, box-shadow .2s, border-color .2s; cursor: pointer; }
+    .quick-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,.08); border-color: var(--lime); color: var(--dark); }
+    .quick-card-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(212,233,14,.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+    .quick-card-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .quick-card-sub { font-size: 13px; color: var(--muted); }
+    @media (max-width: 600px) { .quick-grid { grid-template-columns: 1fr; } }
+
+    /* FAQ */
+    .faq-section { max-width: var(--max); margin: 56px auto 0; padding: 0 var(--px); }
+    .faq-title { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; margin-bottom: 24px; }
+    .faq-category { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--lime); background: rgba(212,233,14,.12); border-radius: 100px; padding: 4px 12px; display: inline-block; margin: 28px 0 16px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 12px; margin-bottom: 8px; overflow: hidden; background: #fff; }
+    .faq-question { width: 100%; text-align: left; background: none; border: none; padding: 18px 20px; font-family: 'Barlow', sans-serif; font-size: 15px; font-weight: 600; color: var(--dark); cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; transition: background .2s; }
+    .faq-question:hover { background: #FAFAF8; }
+    .faq-question[aria-expanded="true"] { background: #FAFAF8; }
+    .faq-icon { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: rgba(0,0,0,.06); display: flex; align-items: center; justify-content: center; transition: transform .25s, background .2s; }
+    .faq-question[aria-expanded="true"] .faq-icon { transform: rotate(45deg); background: var(--lime); }
+    .faq-answer { display: none; padding: 0 20px 18px; font-size: 15px; color: #444; line-height: 1.65; }
+    .faq-answer.open { display: block; }
+    .faq-answer a { color: var(--dark); }
+
+    /* Contact CTA */
+    .contact-section { max-width: var(--max); margin: 56px auto 80px; padding: 0 var(--px); }
+    .contact-cta { background: var(--dark); border-radius: 20px; padding: 40px 32px; text-align: center; }
+    .contact-cta-title { font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .contact-cta-sub { font-size: 15px; color: rgba(255,255,255,.55); margin-bottom: 24px; }
+    .contact-cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--lime); color: var(--dark); text-decoration: none; font-weight: 700; font-size: 15px; padding: 13px 28px; border-radius: 12px; transition: opacity .2s, transform .15s; cursor: pointer; min-height: 44px; }
+    .contact-cta-btn:hover { opacity: .88; transform: translateY(-1px); color: var(--dark); }
+    .contact-cta-btn:active { opacity: .75; transform: translateY(0); }
+
+    /* Footer */
+    .doc-footer-wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
+    .doc-footer { border-top: 1px solid var(--border); padding-top: 32px; padding-bottom: 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .doc-footer a { color: var(--muted); font-size: 14px; text-decoration: none; }
+    .doc-footer a:hover { color: var(--dark); }
+    .doc-footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<nav class="topnav" aria-label="Навигация">
+  <a href="index.html" class="topnav-logo" aria-label="QADAM — на главную">
+    <img src="assets/img/app-icon.png" width="34" height="34" alt="" aria-hidden="true" style="border-radius:8px;display:block;">
+    QADAM
+  </a>
+  <a href="index.html" class="topnav-back" aria-label="Вернуться на главную">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    На главную
+  </a>
+</nav>
+
+<main>
+
+<div class="support-hero">
+  <h1 class="support-hero-title">Поддержка <span>QADAM</span></h1>
+  <p class="support-hero-sub">Ответы на частые вопросы и прямой контакт с командой QADAM.</p>
+</div>
+
+<div class="quick-grid" role="list" aria-label="Быстрые ссылки">
+  <a href="#faq-account" class="quick-card" role="listitem">
+    <div class="quick-card-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <circle cx="11" cy="7" r="4" stroke="#1A1A1A" stroke-width="1.6"/>
+        <path d="M3 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="quick-card-title">Аккаунт</p>
+    <p class="quick-card-sub">Регистрация, вход, удаление</p>
+  </a>
+  <a href="#faq-events" class="quick-card" role="listitem">
+    <div class="quick-card-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <rect x="2" y="4" width="18" height="15" rx="3" stroke="#1A1A1A" stroke-width="1.6"/>
+        <path d="M7 2v4M15 2v4M2 9h18" stroke="#1A1A1A" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="quick-card-title">События</p>
+    <p class="quick-card-sub">Запись, отмена, создание</p>
+  </a>
+  <a href="#contact" class="quick-card" role="listitem">
+    <div class="quick-card-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M20 4H2v14l4-3h14V4z" stroke="#1A1A1A" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M6 9h10M6 13h6" stroke="#1A1A1A" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="quick-card-title">Написать нам</p>
+    <p class="quick-card-sub">Написать на почту</p>
+  </a>
+</div>
+
+<!-- FAQ -->
+<section class="faq-section" aria-label="Часто задаваемые вопросы">
+  <h2 class="faq-title">Часто задаваемые вопросы</h2>
+
+  <span class="faq-category" id="faq-account">Аккаунт</span>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="a1">
+      Как зарегистрироваться в QADAM?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="a1">
+      Скачайте приложение в App Store или Google Play. На экране входа нажмите «Регистрация», введите имя, email и пароль (минимум 8 символов). После регистрации выберите предпочтения — виды спорта и город. Готово.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="a2">
+      Я забыл пароль. Как восстановить доступ?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="a2">
+      На экране входа нажмите «Забыли пароль?» — введите email и мы отправим ссылку для сброса. Если письмо не пришло, проверьте папку «Спам» или напишите нам на <a href="mailto:general@getqadam.kz">general@getqadam.kz</a>.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="a3">
+      Как удалить аккаунт?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="a3">
+      Перейдите в «Настройки» (иконка шестерёнки в профиле) → «Удалить аккаунт». После подтверждения аккаунт удаляется в течение 24 часов. Это действие необратимо.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="a4">
+      Как изменить имя или фото профиля?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="a4">
+      Перейдите в «Настройки» → «Редактировать профиль». Там можно изменить имя, фото, биографию и уровень подготовки. Для смены видов спорта или города — «Настройки» → «Предпочтения».
+    </div>
+  </div>
+
+  <span class="faq-category" id="faq-events">События</span>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="e1">
+      Как записаться на событие?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="e1">
+      Найдите интересующее событие в ленте или поиске, откройте его и нажмите кнопку «Иду». Если мест нет, можно встать в лист ожидания — вы получите уведомление при появлении места.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="e2">
+      Как отменить запись на событие?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="e2">
+      Откройте событие и нажмите кнопку отмены (или «Не иду»). Пожалуйста, отменяйте заблаговременно — это даёт возможность другим участникам из листа ожидания попасть на тренировку.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="e3">
+      Как создать своё событие?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="e3">
+      Нажмите кнопку «+» на нижней панели навигации, выберите «Создать событие», заполните все поля: название, вид спорта, дату, время, место и максимальное количество участников. Событие появится в ленте сразу после публикации.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="e4">
+      Как пожаловаться на некорректное событие или пользователя?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="e4">
+      В карточке события или профиле пользователя нажмите «···» (три точки) в правом верхнем углу и выберите «Пожаловаться». Мы рассматриваем все жалобы в течение 24 часов.
+    </div>
+  </div>
+
+  <span class="faq-category">Технические вопросы</span>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="t1">
+      Не приходят push-уведомления. Что делать?
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="t1">
+      Проверьте несколько вещей: 1) В системных настройках устройства разрешены уведомления от QADAM. 2) В приложении «Настройки» → «Уведомления» включены нужные типы. 3) Режим «Не беспокоить» на устройстве выключен. Если не помогло — переустановите приложение.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="t2">
+      Приложение работает медленно или вылетает.
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="t2">
+      Попробуйте: закройте и откройте приложение, обновите его до последней версии в App Store / Google Play, перезагрузите устройство. Если проблема повторяется — напишите нам с указанием модели устройства и версии ОС.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" aria-expanded="false" aria-controls="t3">
+      Не отображаются события в моём городе.
+      <div class="faq-icon" aria-hidden="true">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+    </button>
+    <div class="faq-answer" id="t3">
+      Убедитесь, что выбран правильный город: «Настройки» → «Предпочтения». Также проверьте, что фильтры в ленте сброшены — попробуйте убрать фильтр по виду спорта или дате.
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact-section" id="contact" aria-label="Написать в поддержку">
+  <div class="contact-cta">
+    <h2 class="contact-cta-title">Не нашли ответ?</h2>
+    <p class="contact-cta-sub">Напишите нам — постараемся помочь.</p>
+    <a href="mailto:general@getqadam.kz" class="contact-cta-btn">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M2 6l7 5 7-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      general@getqadam.kz
+    </a>
+  </div>
+</section>
+
+</main>
+
+<div class="doc-footer-wrap">
+  <footer class="doc-footer">
+    <span style="font-size:14px;color:#999;">&copy; 2026 QADAM. Все права защищены.</span>
+    <div class="doc-footer-links">
+      <a href="index.html">Главная</a>
+      <a href="privacy.html">Конфиденциальность</a>
+      <a href="terms.html">Условия</a>
+    </div>
+  </footer>
+</div>
+
+<script src="assets/js/faq.js" defer></script>
+</body>
+</html>
