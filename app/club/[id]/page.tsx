@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     openGraph: {
       title: club.name,
       description,
+      images: [{ url: 'https://getqadam.kz/assets/img/og-banner.jpg', width: 1200, height: 630 }],
     },
     other: {
       'apple-itunes-app': `app-id=6761689038, app-argument=qadam://club/${id}`,

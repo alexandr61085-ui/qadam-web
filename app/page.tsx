@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     url: 'https://getqadam.kz/',
     type: 'website',
     locale: 'ru_RU',
-    images: [{ url: 'https://getqadam.kz/assets/img/app-icon.png' }],
+    images: [{ url: 'https://getqadam.kz/assets/img/og-banner.jpg', width: 1200, height: 630 }],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'QADAM — Найди свой спорт рядом',
     description: 'Спортивные события и партнёры в Астане и Алматы',
-    images: ['https://getqadam.kz/assets/img/app-icon.png'],
+    images: ['https://getqadam.kz/assets/img/og-banner.jpg'],
   },
   alternates: {
     canonical: 'https://getqadam.kz/',
