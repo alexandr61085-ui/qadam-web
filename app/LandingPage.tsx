@@ -80,7 +80,7 @@ export default function LandingPage() {
             <div className="hero-content">
               <div className="hero-badge" aria-label="Новое приложение">
                 <div className="hero-badge-dot" aria-hidden="true" />
-                Доступно в App Store и Google Play
+                Доступно в App Store
               </div>
               <h1 className="hero-title">
                 Найди свой<br /><span>спорт</span><br />рядом
@@ -97,23 +97,6 @@ export default function LandingPage() {
                   <div className="btn-store-text">
                     <span className="btn-store-sub">Загрузить в</span>
                     <span className="btn-store-name">App Store</span>
-                  </div>
-                </a>
-                <a href="#" className="btn-store" aria-label="Скачать в Google Play">
-                  <svg className="btn-store-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                    <rect width="28" height="28" rx="8" fill="#1A1A1A" />
-                    <path d="M7 6.2v15.6c0 .6.7 1 1.2.6l11.1-7.8c.4-.3.4-.9 0-1.2L8.2 5.6C7.7 5.2 7 5.6 7 6.2z" fill="#D4E90E" />
-                    <path d="M7 6.2l8 8-8 7.6V6.2z" fill="url(#g1)" />
-                    <defs>
-                      <linearGradient id="g1" x1="7" y1="6.2" x2="7" y2="21.8" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#4FC3F7" />
-                        <stop offset="1" stopColor="#1976D2" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                  <div className="btn-store-text">
-                    <span className="btn-store-sub">Загрузить в</span>
-                    <span className="btn-store-name">Google Play</span>
                   </div>
                 </a>
               </div>
@@ -275,18 +258,8 @@ export default function LandingPage() {
                   <span className="btn-store-name">App Store</span>
                 </div>
               </a>
-              <a href="#" className="btn-cta-dark" aria-label="Скачать QADAM в Google Play">
-                <svg className="btn-store-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                  <rect width="28" height="28" rx="8" fill="#2A2A2A" />
-                  <path d="M7 6.2v15.6c0 .6.7 1 1.2.6l11.1-7.8c.4-.3.4-.9 0-1.2L8.2 5.6C7.7 5.2 7 5.6 7 6.2z" fill="#D4E90E" />
-                </svg>
-                <div className="btn-store-text">
-                  <span className="btn-store-sub">Загрузить в</span>
-                  <span className="btn-store-name">Google Play</span>
-                </div>
-              </a>
             </div>
-            <p className="cta-note">Бесплатно. Без подписок. iOS и Android.</p>
+            <p className="cta-note">Бесплатно. Без подписок.</p>
           </div>
         </section>
       </main>
